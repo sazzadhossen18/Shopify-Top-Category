@@ -1,0 +1,198 @@
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: calc({{ section.settings.padding_top }}px * 0.75);
+    padding-bottom: calc({{ section.settings.padding_bottom }}px  * 0.75);
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<style>
+h2.category-heading {
+    text-align: center;
+    margin-bottom: 20px;
+}
+   .top_categories_section .categories_main {
+      display: flex;
+      gap: 10px;
+      overflow-x: scroll;
+      white-space: nowrap;
+      margin: 0 auto;
+      width: 100%;
+      justify-content: center;
+  }
+
+        /* Hide scrollbar for Chrome, Safari and Opera */
+      .top_categories_section .categories_main::-webkit-scrollbar {
+        display: none;
+      }
+
+      /* Hide scrollbar for IE, Edge and Firefox */
+      .top_categories_section .categories_main {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+      }
+      .top_categories_section .categories_main::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+      }
+
+     .categories_main .categories_list {
+      text-align: center;
+      padding: 0 5px;
+  }
+
+      .categories_list a {
+        text-decoration: none;
+      }
+
+    .categories_list .image {
+
+      border-radius: 100px;
+      height: 70px;
+      width: 70px;
+      background: linear-gradient(45deg, #ffc800 15%, #ff1558, #d300c5 85%);
+      padding: 3px;
+  }
+
+      .categories_list .image img {
+        width: 100%;
+        height: 100%;
+        border-radius: 100px;
+        object-fit: cover;
+        display: flex;
+      }
+
+      .categories_list .categories_title {
+        padding: 4.8px 0 0;
+      }
+
+     .categories_list .categories_title span{
+    font-size:  12px;
+    font-weight: 400;
+    font-style: normal;
+    padding: 0;
+    margin: 0;
+}
+
+      @media only screen and (max-width: 480px) {
+  .top_categories_section .categories_main {
+      display: flex;
+      gap: 10px;
+      overflow-x: scroll;
+      white-space: nowrap;
+      margin: 0 auto;
+      width: 100%;
+      justify-content: flex-start;
+  }
+        .top_categories_section {
+          display: block;
+          padding: 0 10px 0 15px;
+          margin: 2rem 0;
+        }
+      }
+</style>
+
+<div class="top_categories_section section-{{ section.id }}-padding">
+  <div class="page__width">
+    <h2 class="category-heading">{{ section.settings.title }}</h2>
+    <div class="categories_main">
+      {% for block in section.blocks %}
+        <div class="categories_list">
+          <a href="{{ block.settings.collection_url }}">
+              {% if block.settings.image != blank %}
+            <div class="image">
+            
+              <img
+                src="{{ block.settings.image | img_url: 'master' }}"
+                alt="Outdoor Jackets"
+                height="100"
+                width="100"
+                loading="lazy"
+              >
+              
+            </div>
+              {% endif %}
+
+            <div class="categories_title">
+        <span>    {{ block.settings.title }}</span>
+            </div>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Top Category",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading"
+    },
+     {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 52
+    }
+  ],
+ "blocks": [
+    {
+      "type": "image",
+      "name": "collection",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Select Image"
+        },
+         {
+          "type": "text",
+          "id": "title",
+          "label": "Collection Name"
+        },
+         {
+          "type": "url",
+          "id": "collection_url",
+          "label": "Url"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Top Category"
+    }
+  ]
+}
+{% endschema %}
