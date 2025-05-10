@@ -196,3 +196,193 @@ h2.category-heading {
   ]
 }
 {% endschema %}
+
+
+
+
+Method 2:
+=======
+
+
+
+<style>
+@media (max-width: 1199px) {
+    .header-category-area {
+        display: flex;
+        align-items: center;
+        margin-bottom: 3px;
+        padding: 0 0 0 10px;
+    }
+  body .hamburger-icon.svg-mb {
+    height: auto;
+    min-width: 35px;
+    width: 40px;
+    display: none;
+}
+  .header-category-area .header-category {
+    width: calc(100% - 30px);
+    overflow: hidden;
+}
+  .header-category nav {
+    overflow: auto;
+    padding: 8px 15px 1px 0px;
+}
+  .header-category ul {
+    min-width: 350px !important;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    flex-wrap: unset !important;
+}
+.header-category ul li {
+    flex: 0 0 max-content !important;
+    width: 100%;
+}
+  .header-category ul li {
+    flex: 0 0 max-content !important;
+    width: 100%;
+}
+  .headerCategoryLink {
+    width: max-content;
+}
+  .header-category ul li a {
+    display: flex;
+    font-size: 11px;
+    font-weight: 500;
+    color: #292929;
+    border: 1px solid #e1f1f5;
+    border-radius: 4px;
+    box-shadow: 0 -1px 7px #00000015;
+    padding: 8px 7px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    min-width: 66px;
+    line-height: 16px;
+    flex-direction: column;
+}
+
+.header-category ul li a img {
+    width: 30px;
+    height: 30px;
+}
+  
+}
+</style>
+<div class="header-category-area header-visible-mobile">
+  <div class="hamburger-icon svg-mb">
+    <a
+      href="#"
+      class="icon-nav"
+      title="Navigation Menu"
+      aria-label="Navigation Menu"
+      aria-expanded="false"
+      role="button"
+      data-menu-mb-toogle=""
+    >
+      <img
+        src="//cdn.shopify.com/s/files/1/0910/0818/files/hamburger.svg"
+        alt="menu"
+        width="19"
+        height="16"
+        loading="eager"
+        style="aspect-ratio: 1 / 1;"
+      >
+    </a>
+  </div>
+  <div class="header-category">
+    <nav>
+      <ul>
+        <li class="men-s">
+          <a id="mob_event_main_menu_1" class="headerCategoryLink" href="/collections/mens-colognes">
+            <img width="" height="" src="//www.fragranceoutlet.com/cdn/shop/files/menu_men.png?v=1738491276" alt="">
+
+            <span>Men’s</span>
+          </a>
+        </li>
+
+        <li class="women-s">
+          <a id="mob_event_main_menu_2" class="headerCategoryLink" href="/collections/womens-perfumes">
+            <img width="" height="" src="//www.fragranceoutlet.com/cdn/shop/files/menu_women.png?v=1738491259" alt="">
+
+            <span>Women’s</span>
+          </a>
+        </li>
+
+        <li class="bogo-50">
+          <a id="mob_event_main_menu_3" class="headerCategoryLink" href="/collections/bogo-50">
+            <img width="" height="" src="//www.fragranceoutlet.com/cdn/shop/files/BOGO.jpg?v=1738485872" alt="">
+
+            <span>BOGO 50</span>
+          </a>
+        </li>
+
+        <li class="bundle-deals">
+          <a id="mob_event_main_menu_4" class="headerCategoryLink" href="/collections/bundle-save">
+            <img width="" height="" src="//www.fragranceoutlet.com/cdn/shop/files/Bundle_Menu.jpg?v=1738485875" alt="">
+
+            <span>Bundle Deals</span>
+          </a>
+        </li>
+
+        <li class="exclusive">
+          <a
+            id="mob_event_main_menu_5"
+            class="headerCategoryLink"
+            href="/collections/exclusive-selection-of-perfumes-and-colognes"
+          >
+            <img
+              width=""
+              height=""
+              src="//www.fragranceoutlet.com/cdn/shop/files/menu_exlusive.png?v=1738491263"
+              alt=""
+            >
+
+            <span>Exclusive</span>
+          </a>
+        </li>
+
+        <li class="gifts">
+          <a id="mob_event_main_menu_6" class="headerCategoryLink" href="/collections/perfumes-and-colognes-gift-sets">
+            <img
+              width=""
+              height=""
+              src="//www.fragranceoutlet.com/cdn/shop/files/gifts_6c27183f-317e-49f7-9721-82842e217e56.jpg?v=1738485876"
+              alt=""
+            >
+
+            <span>Gifts</span>
+          </a>
+        </li>
+
+        <li class="shop-by-brand">
+          <a id="mob_event_main_menu_7" class="headerCategoryLink" href="/pages/brands">
+            <img width="" height="" src="//www.fragranceoutlet.com/cdn/shop/files/shopa-z.png?v=1738484356" alt="">
+
+            <span>Shop by brand</span>
+          </a>
+        </li>
+
+        <li class="blogs">
+          <a id="mob_event_main_menu_8" class="headerCategoryLink" href="/blogs/article">
+            <img width="" height="" src="//www.fragranceoutlet.com/cdn/shop/files/Blog_Menu.jpg?v=1738485860" alt="">
+
+            <span>Blogs</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Mobile Category",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Mobile Category"
+    }
+  ]
+}
+{% endschema %}
